@@ -96,7 +96,7 @@
     </div>
 
     <!-- Publications -->
-    <div>
+    <div class="mb-16">
       <h2 class="text-3xl font-bold text-gray-900 mb-8 flex items-center">
         <span class="mr-3">📝</span> Publications
       </h2>
@@ -128,6 +128,55 @@
             </a>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Licenses & Certifications -->
+    <div id="certifications">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 flex items-center">
+        <span class="mr-3">🏅</span> Licenses &amp; Certifications
+      </h2>
+      
+      <div class="space-y-6">
+        @for (cert of certifications; track cert.credentialId) {
+          <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-600 hover:shadow-xl transition-shadow">
+            <div class="flex items-start gap-6">
+              <!-- Logo -->
+              <div class="flex-shrink-0">
+                @if (cert.logo === 'hackerrank') {
+                  <div class="w-16 h-16 bg-gray-900 rounded-lg flex items-center justify-center">
+                    <span class="text-green-500 font-bold text-2xl">H</span>
+                  </div>
+                }
+                @if (cert.logo === 'coursera') {
+                  <div class="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-xl">C</span>
+                  </div>
+                }
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-gray-900 mb-1">{{ cert.title }}</h3>
+                <p class="text-lg text-gray-700 mb-2">{{ cert.organization }}</p>
+                <p class="text-gray-600 mb-1">
+                  <span class="font-semibold">Issued:</span> {{ cert.issueDate }}
+                </p>
+                <p class="text-gray-600 mb-3">
+                  <span class="font-semibold">Credential ID:</span> {{ cert.credentialId }}
+                </p>
+                <a [href]="cert.certificateUrl" 
+                   target="_blank" 
+                   class="inline-flex items-center text-brand-600 hover:text-brand-700 font-semibold">
+                  Show credential
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        }
       </div>
     </div>
 
