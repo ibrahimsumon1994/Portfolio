@@ -1,0 +1,15 @@
+<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="600" fill="#f0fdf4"/>
+  <rect x="50" y="50" width="500" height="500" fill="#dcfce7" rx="20"/>
+  <text x="300" y="150" font-family="Arial, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#166534">Congratulations</text>
+  <text x="300" y="200" font-family="Arial, sans-serif" font-size="30" text-anchor="middle" fill="#15803d">FROM ALL OF US</text>
+  <text x="300" y="280" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#000">Ibrahim Sumon</text>
+  <text x="300" y="320" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#4b5563">Senior Software Engineer</text>
+  <rect x="350" y="100" width="150" height="120" fill="#22c55e" rx="10"/>
+  <text x="425" y="140" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#fff">INSIGHTIN</text>
+  <text x="425" y="165" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#fff">TECH MVP</text>
+  <circle cx="150" cy="120" r="30" fill="#fbbf24"/>
+  <polygon points="150,100 155,115 170,115 158,125 163,140 150,130 137,140 142,125 130,115 145,115" fill="#fff"/>
+  <text x="300" y="420" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#166534">MVP 2024</text>
+  <text x="300" y="460" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#4b5563">Most Valuable Person Award</text>
+</svg>
