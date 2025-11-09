@@ -26,28 +26,87 @@ export class Contact {
   constructor(private http: HttpClient) {}
 
   onSubmit() {
+    // Validate form fields
+    if (!this.validateForm()) {
+      return;
+    }
+
     this.isSubmitting = true;
     this.submitSuccess = false;
     this.submitError = false;
 
-    // Simulate form submission (in a real app, this would call an API)
-    setTimeout(() => {
-      this.isSubmitting = false;
-      this.submitSuccess = true;
+    // Since this is a client-side only application, we'll use mailto as a fallback
+    // The user can replace this with actual backend implementation later
+    const mailtoLink = this.createMailtoLink();
+    
+    try {
+      // Open default email client with pre-filled information
+      window.location.href = mailtoLink;
       
-      // Reset form
-      this.formData = {
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      };
-
-      // Hide success message after 5 seconds
+      // Show success message
       setTimeout(() => {
-        this.submitSuccess = false;
-      }, 5000);
-    }, 1500);
+        this.isSubmitting = false;
+        this.submitSuccess = true;
+        
+        // Reset form
+        this.formData = {
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        };
+
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          this.submitSuccess = false;
+        }, 5000);
+      }, 500);
+    } catch (error) {
+      this.isSubmitting = false;
+      this.submitError = true;
+      console.error('Error sending message:', error);
+    }
+  }
+
+  private validateForm(): boolean {
+    // Validate name
+    if (!this.formData.name || this.formData.name.trim().length < 2) {
+      alert('Please enter a valid name (at least 2 characters)');
+      return false;
+    }
+
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!this.formData.email || !emailRegex.test(this.formData.email)) {
+      alert('Please enter a valid email address');
+      return false;
+    }
+
+    // Validate subject
+    if (!this.formData.subject || this.formData.subject.trim().length < 3) {
+      alert('Please enter a valid subject (at least 3 characters)');
+      return false;
+    }
+
+    // Validate message
+    if (!this.formData.message || this.formData.message.trim().length < 10) {
+      alert('Please enter a valid message (at least 10 characters)');
+      return false;
+    }
+
+    return true;
+  }
+
+  private createMailtoLink(): string {
+    const to = 'ibrahimsumon03@gmail.com';
+    const subject = encodeURIComponent(`Portfolio Contact: ${this.formData.subject}`);
+    const body = encodeURIComponent(
+      `Name: ${this.formData.name}\n` +
+      `Email: ${this.formData.email}\n\n` +
+      `Message:\n${this.formData.message}`
+    );
+    
+    return `mailto:${to}?subject=${subject}&body=${body}`;
   }
 
   downloadCv() {
