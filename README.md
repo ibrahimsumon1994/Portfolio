@@ -210,7 +210,7 @@ For inquiries, please use the contact form on the website or reach out via:
 
 ---
 
-**Note**: Remember to update the CV file in `public/assets/cv.pdf` with your actual resume before deployment.App
+App
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
 
