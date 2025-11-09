@@ -37,11 +37,11 @@ export class Contact {
 
     // Since this is a client-side only application, we'll use mailto as a fallback
     // The user can replace this with actual backend implementation later
-    const mailtoLink = this.createMailtoLink();
+    //const mailtoLink = this.createMailtoLink();
     
     try {
       // Open default email client with pre-filled information
-      window.location.href = mailtoLink;
+      //window.location.href = mailtoLink;
       
       // Show success message
       setTimeout(() => {
