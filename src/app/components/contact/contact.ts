@@ -111,7 +111,7 @@ export class Contact {
 
   downloadCv() {
     this.http.get(this.cvPath, { responseType: 'blob' }).subscribe({
-      next: (blob: Blob) => {
+      next: (blob) => {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -122,7 +122,7 @@ export class Contact {
         a.remove();
         window.URL.revokeObjectURL(url);
       },
-      error: (err: unknown) => {
+      error: (err) => {
         console.error('Failed to download CV:', err);
         alert('Unable to download CV. Please try again later.');
       }
